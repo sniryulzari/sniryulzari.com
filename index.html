@@ -2,17 +2,254 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>Snir Yulzari's Portfolio Website</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Oxygen&family=Oxygen+Mono&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"
+      rel="stylesheet"
+    />
+    <link href="./css/style.css" rel="stylesheet" />
   </head>
-  <body></body>
+
+  <body>
+    <nav>
+      <ul>
+        <li>
+          <h1>
+            <a href="index.html">
+              <span class="fa-solid fa-code" aria-hidden="true"></span>
+              <span>Snir Yulzari</span>
+            </a>
+          </h1>
+        </li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="./about.html">About</a></li>
+        <li><a href="#contact">Contact</a></li>
+        <li>
+          <a href="https://www.linkedin.com/in/snir-yulzari-514b6874/">
+            <span class="fa-brands fa-linkedin" aria-hidden="true"></span>
+            <span class="sr-only">LinkedIn</span>
+          </a>
+        </li>
+        <li>
+          <a href="https://github.com/sniryulzari?tab=repositories">
+            <span class="fa-brands fa-square-github" aria-hidden="true"></span>
+            <span class="sr-only"> Github </span>
+          </a>
+        </li>
+        <li>
+          <a
+            href="https://drive.google.com/file/d/1NiSz-8DrLM6kqwaKlCf1cPaEGG58YLv0/view?usp=share_link"
+            target="_blank"
+            class="button"
+            >Resume</a
+          >
+        </li>
+      </ul>
+    </nav>
+
+    <section id="intro">
+      <p class="name">Hi, my name is <span>Snir Yulzari.</span></p>
+
+      <h2>I develop web applications.</h2>
+
+      <p>
+        I'm a developer specializing in React, Node.js, MongoDB, SQL and CSS.
+      </p>
+
+      <p>
+        Currently, I'm making a career switch from Leagl to
+        <a href="https://github.com/sniryulzari?tab=repositories"
+          >Full Stack Development.</a
+        >
+      </p>
+    </section>
+
+    <div class="gradient"></div>
+
+    <div class="section-blue">
+      <section id="projects">
+        <h2>Projects I'm proud of</h2>
+        <article>
+          <div class="text">
+            <h4>Full Stack Project</h4>
+            <h3>Pet Adoption</h3>
+            <p class="blackbox">
+              Ado-Pet is a full-stack platform that allows users to sign up,
+              search and adopt their favorite pet. The project was originally
+              created as an ITC boot camp assignment, which I upgraded,
+              enhanced, and improved afterwards, adding features like pet of the
+              week, and improving the design. Ado-Pet utilizes MongoDB as a
+              database for storing information regarding users and pets. The
+              Admin Dashboard provides access to this information. You may want
+              to try
+              <a href="https://pet-adoption-bbvp.onrender.com">Ado-Pet</a>
+            </p>
+            <h4>Technologies used include:</h4>
+            <ul>
+              <li>React</li>
+              <li>Node.js</li>
+              <li>MongoDB</li>
+              <li>Bootstrap</li>
+              <li>Git Hub</li>
+            </ul>
+          </div>
+          <img
+            src="./img/pet adoption project.png"
+            alt="Screenshot of the Pet Adoption Project."
+          />
+        </article>
+
+        <article class="reverse">
+          <div class="text">
+            <h4>Android & IOS Application</h4>
+            <h3>Mood Tracker</h3>
+            <p class="blackbox">
+              Meet MoodTracker - a super easy mood tracker & journaling app to
+              capture your mood and help you improve your thinking habits.
+              MoodTracker empowers you to track your mood over time, avoid
+              common thinking traps, and develop perspectives associated with
+              increased happiness and well-being.
+            </p>
+            <h4>Technologies used include:</h4>
+            <ul>
+              <li>React Native</li>
+              <li>TypeScript</li>
+              <li>Xcode</li>
+              <li>Android Studio</li>
+            </ul>
+          </div>
+          <div class="video">
+            <video width="300" controls>
+              <source
+                src="https://kadikraman.github.io/react-native-beyond-basics/img/demo.mp4"
+                type="video/mp4"
+              />
+            </video>
+          </div>
+        </article>
+
+        <article>
+          <div class="text">
+            <h4>Design Project</h4>
+            <h3>Magenta Lime</h3>
+            <p class="blackbox">
+              I designed a website for the fictional band Magenta Lime. This
+              project demonstrated my frontend skills, using mainly CSS, HTML,
+              and a bit of vanilla Javascript. A fully responsive website is
+              available for desktops, tablets, and mobile devices. If you would
+              like to view the first design, click
+              <a href="./magentaLime/difficultDesign/index.html">here</a>, and
+              if you would like to view the second design, click
+              <a href="./magentaLime/mediumDesign/index.html">here</a>.
+            </p>
+            <h4>Technologies used include:</h4>
+            <ul>
+              <li>HTML</li>
+              <li>CSS</li>
+              <li>Java Script</li>
+            </ul>
+          </div>
+          <img
+            src="./img/magenta lime.png"
+            alt="Screenshot of the Wall of Wonder Collections."
+          />
+        </article>
+
+        <article class="reverse">
+          <div class="text">
+            <h4>Hackathon Group Project</h4>
+            <h3>Secret Apartments</h3>
+            <p class="blackbox">
+              Secret Apartment is a proof of concept Application, that help the
+              users find out the average cost of renting or buying an apartment
+              in a specific area. Based on this information, it will mark the
+              cheapest available property that is less than the market price.
+            </p>
+            <h4>Technologies used include:</h4>
+            <ul>
+              <li>React</li>
+              <li>Node.js</li>
+              <li>SQL</li>
+              <li>CSS</li>
+            </ul>
+          </div>
+          <img
+            src="./img/secret apartments project.png"
+            alt="Screenshot of the secret apartments project."
+          />
+        </article>
+      </section>
+    </div>
+
+    <div class="gradient"></div>
+
+    <div class="section-plum">
+      <section id="contact">
+        <h2>Contact me</h2>
+        <p>
+          I'm always interested in hearing about new ideas, business
+          opportunities and talk to interesting people.
+        </p>
+        <p>
+          <a href="mailto:sniryulzari@gmail.com" class="button">Email me</a>
+        </p>
+      </section>
+    </div>
+
+    <div class="gradient"></div>
+
+    <footer>
+      <h2>Snir Yulzari &middot; Full Stack Developer</h2>
+      <ul>
+        <li>
+          <a
+            href="https://www.linkedin.com/in/snir-yulzari-514b6874/"
+            target="_blank"
+          >
+            <span class="fab fa-linkedin" aria-hidden="true"></span>
+            <span class="sr-only">LinkedIn</span>
+          </a>
+        </li>
+        <li>
+          <a href="https://github.com/sniryulzari" target="_blank">
+            <span class="fab fa-github-square" aria-hidden="true"></span>
+            <span class="sr-only">Github</span>
+          </a>
+        </li>
+        <li>
+          <a href="mailto:sniryulzari@gmail.com">
+            <span class="fas fa-envelope" aria-hidden="true"></span>
+            <span class="sr-only">Email</span>
+          </a>
+        </li>
+      </ul>
+      <p>
+        <small
+          >&copy; <small id="year"></small> Snir yulzari. All rights
+          reserved.</small
+        >
+      </p>
+    </footer>
+  </body>
+
   <script>
     let ws;
-    const proto = window.location.protocol === 'https:' ? 'wss' : 'ws';
+    const proto = window.location.protocol === "https:" ? "wss" : "ws";
     ws = new WebSocket(`${proto}://${window.location.host}`);
 
     ws.onmessage = (event) => {
       console.log(event.data);
     };
+
+    let year = new Date().getFullYear();
+    document.getElementById("year").innerHTML = year;
   </script>
 </html>
