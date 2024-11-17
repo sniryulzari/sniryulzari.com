@@ -7,10 +7,10 @@
   },
   "author": "",
   "license": "ISC",
-  "type": "module",
   "description": "",
   "dependencies": {
     "express": "^4.21.1",
+    "sqlite3": "^5.1.7",
     "ws": "^8.18.0"
   }
 }
