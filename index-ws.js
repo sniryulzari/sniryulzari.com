@@ -1,84 +1,57 @@
-const express = require("express");
-const server = require("http").createServer();
-const app = express();
+import express from "express";
+import { createServer } from 'http';
+import { WebSocketServer } from 'ws';
+import path from 'path';
 
-// server your css as static
+const app = express();
+const PORT = 3000;
+const server = createServer(app);
+const __dirname = path.resolve();
+
 app.use(express.static(__dirname));
 
-app.get("/", function (req, res) {
-  // res.sendFile('index.html', { root: __dirname });
+app.get('/', function(req, res) {
   res.sendFile(__dirname + '/index.html');
 });
 
-server.on("request", app);
-server.listen(3000, function () {
-  console.log("server started on port 3000");
-});
+server.on('request', app);
 
-/** Begin websocket */
-const WebSocketServer = require("ws").Server;
+server.listen(PORT, function () { console.log('Listening on ' + PORT); });
+
+/** Websocket **/
 
 const wss = new WebSocketServer({ server: server });
 
-process.on("SIGINT", () => {
-  console.log("sigint");
-  wss.clients.forEach(function each(client) {
-    client.close();
-  });
-  server.close(() => {
-    shutdownDB();
-  });
-});
-
-wss.on("connection", function connection(ws) {
+wss.on('connection', function connection(ws) {
   const numClients = wss.clients.size;
-  console.log("Clients connected", numClients);
+
+  console.log('clients connected: ', numClients);
 
   wss.broadcast(`Current visitors: ${numClients}`);
 
   if (ws.readyState === ws.OPEN) {
-    ws.send("Welcome to my server");
+    ws.send('welcome!');
   }
 
-  db.run(`INSERT INTO visitors (count, time)
-        VALUES (${numClients}, datetime('now'))
-    `);
+  ws.on('close', function close() {
+    wss.broadcast(`Current visitors: ${wss.clients.size}`);
+    console.log('A client has disconnected');
+  });
 
-  ws.on("close", function close() {
-    wss.broadcast(`Current visitors: ${numClients}`);
-    console.log("A client has disconnected");
+  ws.on('error', function error() {
+    //
   });
 });
 
+/**
+ * Broadcast data to all connected clients
+ * @param  {Object} data
+ * @void
+ */
 wss.broadcast = function broadcast(data) {
+  console.log('Broadcasting: ', data);
   wss.clients.forEach(function each(client) {
     client.send(data);
   });
 };
-
-/** end websockets */
-/** begin database */
-const sqlite = require("sqlite3");
-const db = new sqlite.Database(":memory:");
-
-db.serialize(() => {
-  db.run(`
-        CREATE TABLE visitors (
-            count INTEGER,
-            time TEXT
-        )
-    `);
-});
-
-function getCounts() {
-  db.each("SELECT * FROM visitors", (err, row) => {
-    console.log(row);
-  });
-}
-
-function shutdownDB() {
-  console.log("Shutting down db");
-
-  getCounts();
-  db.close();
-}
+/** End Websocket **/
